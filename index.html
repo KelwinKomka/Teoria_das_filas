@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Simulação</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="main.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+    <div class="divMain">
+
+      <div style="margin-top: 50px;">
+        <label>Tempo a ser simulado (minutos):</label>
+        <input id="ipMinutos" type="number" class="inputText" tabindex="1">
+        <br/>
+        <button id="btnSimular" class="btn" type="submit" onclick="simular()" tabindex="8">Simular</button>
+        <div id="divErro"></div>
+      </div>
+
+      <div style="margin-top: 35px;">
+        <table>
+          <tr>
+            <td></td>
+            <td class="tdInput">A</td>
+            <td class="tdInput">B</td>
+            <td class="tdInput">C</td>
+          </tr>
+          <tr>
+            <td class="tdLabel"><label>Chegadas (λ):</label></td>
+            <td class="tdInput"><input type="number" id="ipChegada1A" class="inputText" tabindex="2"></td>
+            <td class="tdInput"><input type="number" id="ipChegada1B" class="inputText" tabindex="3"></td>
+            <td class="tdInput"><input type="number" id="ipChegada1C" class="inputText" tabindex="4"></td>
+          </tr>
+          <tr>
+            <td class="tdLabel"><label>Serviço (μ):</label></td>
+            <td class="tdInput"><input type="number" id="ipServico1A" class="inputText" tabindex="5"></td>
+            <td class="tdInput"><input type="number" id="ipServico1B" class="inputText" tabindex="6"></td>
+            <td class="tdInput"><input type="number" id="ipServico1C" class="inputText" tabindex="7"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="margin-top: 35px;">
+        <table>
+          <tr>
+            <td class="tdInput">A</td>
+            <td class="tdInput">B</td>
+            <td class="tdInput">C</td>
+          </tr>
+          <tr>
+            <td class="tdInput"><input id="ipChegada2A" disabled="true"></td>
+            <td class="tdInput"><input id="ipChegada2B" disabled="true"></td>
+            <td class="tdInput"><input id="ipChegada2C" disabled="true"></td>
+          </tr>
+          <tr>
+            <td class="tdInput"><input id="ipServico2A" disabled="true"></td>
+            <td class="tdInput"><input id="ipServico2B" disabled="true"></td>
+            <td class="tdInput"><input id="ipServico2C" disabled="true"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="margin-top: 15px;">
+        <table>
+          <tr>
+            <td></td>
+            <td class="tdInput">A</td>
+            <td class="tdInput">B</td>
+            <td class="tdInput">C</td>
+          </tr>
+          <tr>
+            <td class="tdLabel"><label>Número médio de carros no sistema: <strong>L = (λ/(μ-λ))</strong></label></td>
+            <td class="tdInput"><input id="ipNumeroMedioA" disabled="true"></td>
+            <td class="tdInput"><input id="ipNumeroMedioB" disabled="true"></td>
+            <td class="tdInput"><input id="ipNumeroMedioC" disabled="true"></td>
+          </tr>
+          <tr>
+            <td class="tdLabel"><label>Tempo médio despendido no sistema: <strong>W = (1/(μ-λ))</strong></label></td>
+            <td class="tdInput"><input id="ipTempoMedioA" disabled="true"></td>
+            <td class="tdInput"><input id="ipTempoMedioB" disabled="true"></td>
+            <td class="tdInput"><input id="ipTempoMedioC" disabled="true"></td>
+          </tr>
+          <tr>
+            <td class="tdLabel"><label>Taxa média de ocupação do servidor: <strong>ρ = (λ/μ)</strong></label></td>
+            <td class="tdInput"><input id="ipTaxaMediaA" disabled="true"></td>
+            <td class="tdInput"><input id="ipTaxaMediaB" disabled="true"></td>
+            <td class="tdInput"><input id="ipTaxaMediaC" disabled="true"></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="divMain" style="text-align: center;">
+
+      <div class="divInput"> 
+        <label for="ipProbabClientes">Probabilidade de clientes (MAX): </label>
+        <input id="ipProbabClientes" type="number" class="inputText">
+        <label style="margin-left: 10px;"><strong>Pn = (1 - (λ/μ))*(λ/μ)^n</strong></label>
+      </div>
+
+      <table id="tbProb" class="tg">
+        <th>N</th>
+        <th>P(x)</th>
+        <th>Cenário A</th>
+        <th>Cenário B</th>
+        <th>Cenário C</th>
+      </table>
+    </div>
+
+  </body>
+</html>
